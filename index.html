@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Calendar</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body >
+	
+	    <div class = "r1">
+ 			<i class="fa fa-bars fa-lg" aria-hidden="true"></i>
+ 			<i class="fa fa-calendar fa-lg" aria-hidden="true"></i>
+ 			<p> Calender</p>
+ 			<button>Today</button>
+ 			<div class="prev" onclick="moveDate('prev')">
+                    <span>&#10094;</span>
+            </div>
+            <div class="next" onclick="moveDate('next')">
+                    <span>&#10095;</span>
+            </div>
+            <p>January</p>
+            
+            <nav>
+				<ul>
+
+          
+					<li class = "search"><i class="fa fa-search fa-lg "></i></li>
+
+					<li><i class="fa fa-question-circle-o fa-lg" ></i></li>
+					<li><i class="fa fa-cog fa-lg"></i></li>
+         
+					<li>
+						<select>
+						    <option value="volvo"> Month </option>
+  							<option value="volvo">Day		D</option>
+  						 	<option value="saab">Week		W</option>
+  							<option value="opel">Month		M</option>
+  							<option value="audi">Year       Y</option>
+  							<option value="volvo">Schedule       A</option>
+  						 	<option value="saab">4 days      X</option>
+  							<option value="opel"><i class="fa fa-check" ></i> Show weekends</option>
+  							<option value="audi"><i class="fa fa-check" ></i> Show declined events</option>
+
+						</select>
+					</li>
+					<li><i class="fa fa-th fa-lg" ></i></li>
+					<li><i class="fa fa-user-circle fa-lg"></i></li>
+					
+         
+				</ul>
+			</nav>
+		</div>
+ 		
+ 		
+	   <div class = "row r2" >
+	   		<div class = "col-md-3 r1c1">
+	   			<button type="button" id = "modal-btn"><i class="fa fa-plus fa-lg"></i> Create</button>
+          <div onload="renderDate()">
+	   			<div class="wrapper" ">
+        			<div class="calendar">
+            			<div class="month">
+                			<div class="prev" onclick="moveDate('prev')">
+                    			<span>&#10094;</span>
+                			</div>
+                			<div>
+                    			<h2 id="month"></h2>
+                    			<p id="date_str"></p>
+                			</div>
+                			<div class="next" onclick="moveDate('next')">
+                    			<span>&#10095;</span>
+                			</div>
+            			</div>
+            			<div class="weekdays">
+                			<div>S</div>
+                			<div>M</div>
+                			<div>T</div>
+                			<div>W</div>
+                			<div>T</div>
+                			<div>F</div>
+                			<div>S</div>
+            			</div>
+            			<div class="days">
+
+            			</div>
+        			</div>
+    			</div>
+          </div>
+
+          <div class = "sopen" onclick="searchOpen()">
+            <i class="fa fa-search fa-lg"></i>
+
+            <input class="hide" type="text" id="textInput" value="Search here" />
+          </div>
+          <form>
+              <div class="multiselect">
+                <div class="selectBox" onclick="showCheckboxes()">
+                  <select>
+                    <option>My calenders</option>
+                  </select>
+                  <div class="overSelect"></div>
+                </div>
+                <div id="checkboxes">
+              <label for="one">
+                <input type="checkbox" id="one" />Vishnu Priya</label>
+              <label for="two">
+                <input type="checkbox" id="two" />Contancts</label>
+              <label for="three">
+                <input type="checkbox" id="three" />Remainders</label>
+              <label for="four">
+                <input type="checkbox" id="four" />Tasks</label>
+              </div>
+             </div>
+          </form>
+	   		 
+    		</div>
+    	
+	   		<div class="col-md-9 r2c2">
+	   			<table>
+  					<tr>
+    					<th>SUN <br> </th>
+    					<th>MON <br> </th>
+    					<th>TUE <br> </th>
+    					<th>WED <br> </th>
+    					<th>THU <br> </th>
+    					<th>FRI <br> </th>
+    					<th>SAT <br> </th>
+    					
+  					</tr>
+  					<tr>
+    					<td id = "modal2"></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+  					</tr>
+  					<tr>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+  					</tr>
+  					<tr>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+  					</tr>
+  					
+  					<tr>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+  					</tr>
+  					<tr>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+  					</tr>
+  					<tr>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+  					</tr>
+  					<tr>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+  					</tr>
+  					<tr>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+  					</tr>
+  					<tr>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+  					</tr>
+  					<tr>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+  					</tr>
+  					<tr>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+  					</tr>
+  					<tr>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+  					</tr>
+  					<tr>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+  					</tr>
+  					<tr>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+  					</tr>
+  					<tr>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+  					</tr>
+
+
+
+
+
+
+
+
+
+
+  					
+  					
+
+				</table>
+
+	   		</div>
+	   </div>  
+
+     <div class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+         <input type="text" name="event" placeholder="Add Event">
+         <ul>
+           <li>Event</li>
+           <li> Remainder</li>
+            <li>Task</li>
+         </ul>
+         <ul>
+           <li>26 Aug 2020</li>
+           <li> 1:30am - 2:30 am</li>
+
+         </ul>
+         <input type="text" name="event" placeholder="Add guests">
+         <input type="text" name="event" placeholder="Add location or conferencing">
+         <input type="text" name="event" placeholder="Add description">
+         <div class = "options">
+           <button type="button" class = "more"> More options</button>
+           <button type="button" class = "save">Save</button>
+         </div>
+         
+
+
+      </div>
+    </div>
+
+    
+<script type="text/javascript" src = "index.js"></script>
+</body>
+</html>
